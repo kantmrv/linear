@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
-#include "Matrix.h"
-#include "Span.h"
+#include "Matrix.hpp"
+#include "Span.hpp"
 
 
 int main() {
