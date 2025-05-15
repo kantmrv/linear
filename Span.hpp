@@ -1,11 +1,11 @@
-#ifndef LINEAR_SPAN_H
-#define LINEAR_SPAN_H
+#ifndef LINEAR_SPAN_HPP
+#define LINEAR_SPAN_HPP
 
 #include <cmath>
 #include <limits>
 #include <random>
 
-#include "Matrix.h"
+#include "Matrix.hpp"
 
 
 namespace linear {
@@ -117,4 +117,4 @@ namespace linear {
 
 } // namespace linear
 
-#endif // LINEAR_SPAN_H
+#endif // LINEAR_SPAN_HPP
