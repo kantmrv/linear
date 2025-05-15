@@ -1,5 +1,5 @@
-﻿#ifndef MATRIX_H
-#define MATRIX_H
+﻿#ifndef MATRIX_HPP
+#define MATRIX_HPP
 
 #include <algorithm>
 #include <array>
@@ -427,4 +427,4 @@ namespace linear {
     }
 } // namespace linear
 
-#endif // MATRIX_H
+#endif // MATRIX_HPP
