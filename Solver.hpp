@@ -8,9 +8,10 @@
 #ifndef SOLVER_HPP
 #define SOLVER_HPP
 
-#include "Matrix.hpp"
 #include <cmath>
 #include <limits>
+
+#include "Matrix.hpp"
 
 namespace linear {
 
