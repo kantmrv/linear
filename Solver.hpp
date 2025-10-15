@@ -13,6 +13,7 @@
 
 #include "Matrix.hpp"
 
+
 namespace linear {
 
     // Base solver class for linear systems Ax = b
