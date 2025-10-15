@@ -967,12 +967,11 @@ namespace linear {
             auto [Q, R] = qr();
 
             // Count non-zero diagonal elements in R
-            Scalar eps = Scalar(std::numeric_limits<double>::epsilon()) * Scalar(10);
             size_t rank_count = 0;
             size_t min_dim = std::min(R.rows(), R.cols());
 
             for (size_t i = 0; i < min_dim; ++i) {
-                if (std::abs(R(i, i)) > eps) {
+                if (std::abs(R(i, i)) > std::numeric_limits<Scalar>::epsilon()) {
                     ++rank_count;
                 }
             }
@@ -1363,4 +1362,5 @@ namespace linear {
 } // namespace linear
 
 #endif // MATRIX_HPP
+
 
