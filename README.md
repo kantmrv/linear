@@ -79,9 +79,6 @@ Matrix<double> b(3, 1);
 LU_Solver<double> solver;
 auto x = solver.solve(A, b);
 
-// Or use the static convenience method
-auto x = LU_Solver<double>::solve_system(A, b);
-
 // Iterative solvers with convergence control
 Jacobian_Solver<double> jacobi(1000, 1e-10);  // max_iter, tolerance
 auto x = jacobi.solve(A, b);
@@ -160,15 +157,13 @@ friend constexpr auto operator*(const Matrix& lhs, const Matrix<InScalar, InRows
 
 ## Build Instructions
 
+### C++ (Header-Only)
 ```bash
-# Compile main program
+# Just include headers - no build required
 clang++ -std=c++20 main.cpp -o main
 
 # With optimizations
-clang++ -std=c++20 -O3 main.cpp -o main
-
-# With warnings
-clang++ -std=c++20 -Wall -Wextra main.cpp -o main
+clang++ -std=c++20 -O3 -Wall -Wextra main.cpp -o main
 ```
 
 ## API Reference
@@ -244,16 +239,33 @@ using Vector4d = VectorX<double, 4>;
 using Vector<double> = Matrix<double, 1, DynamicSize>;
 ```
 
-## Best Practices
+---
 
-1. **Use static matrices when size is known at compile time** for better performance
-2. **Ensure diagonal dominance** for iterative solvers to guarantee convergence
-3. **Check condition numbers** before solving systems - high values indicate ill-conditioning
-4. **Use QR for least squares** problems - more numerically stable than normal equations
-5. **Prefer move semantics** - use `std::move()` or rvalue expressions for large matrices
+## Python Package
 
-## Limitations
+Python bindings are available with seamless NumPy integration:
 
-- Iterative solvers require diagonally dominant or positive definite matrices for guaranteed convergence
-- QR decomposition produces economy-size factorization (m × n matrix → m × min(m,n) Q and min(m,n) × n R)
-- Rank computation uses numerical tolerance - very small pivots are treated as zero
+```python
+import numpy as np
+from linear import Matrix, LUSolver
+
+# Create from NumPy array
+A = Matrix(np.array([[4, 1], [1, 3]], dtype=np.float64))
+b = Matrix(np.array([[5], [4]], dtype=np.float64))
+
+# Solve system
+solver = LUSolver()
+x = solver.solve(A, b)
+
+# Decompositions
+P, L, U = A.lu()
+Q, R = A.qr()
+```
+
+```bash
+cd python
+uv venv && uv sync
+uv run pytest tests/
+```
+
+For detailed Python documentation, see [python/README.md](python/README.md).

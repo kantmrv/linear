@@ -1,0 +1,69 @@
+# --------------------
+# Python artifacts
+# --------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python environments
+.venv/
+venv/
+.env
+/docs
+
+# py-build-cmake
+.py-build-cmake_cache/
+
+# --------------------
+# C++ / CMake / Ninja
+# --------------------
+# Object & libraries
+*.o
+*.a
+*.dylib
+*.dll
+*.so
+
+# CMake build dirs/files
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+cmake-build-*
+CTestTestfile.cmake
+cmake_install.cmake
+install_manifest.txt
+Makefile
+
+# Ninja build
+build.ninja
+.ninja_log
+.ninja_deps
+
+# --------------------
+# Tool caches
+# --------------------
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# --------------------
+# IDE / OS / Other
+# --------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+*.orig
+.clangd
+.clang-format
+/docs

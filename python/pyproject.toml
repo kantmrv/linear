@@ -1,0 +1,32 @@
+[build-system]
+requires = ["py-build-cmake>=0.5.0", "nanobind>=2.0"]
+build-backend = "py_build_cmake.build"
+
+[project]
+name = "linear"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.py-build-cmake.module]
+name = "linear"
+
+[tool.py-build-cmake.cmake]
+minimum_version = "3.18"
+build_type = "Release"
+source_path = "."
+build_args = ["-j"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
